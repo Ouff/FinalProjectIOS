@@ -62,9 +62,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.frame.size.width/2)
             ball.physicsBody?.friction = 0
-            ball.physicsBody?.restitution = 1
+            ball.physicsBody?.restitution = 1.0
             ball.physicsBody?.linearDamping = 0
             ball.physicsBody?.allowsRotation = false
+            
             
             ball.physicsBody?.applyImpulse(CGVector(dx: 2, dy: -2))
             
@@ -92,10 +93,50 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             ball.physicsBody?.categoryBitMask = ballCat
             paddle.physicsBody?.categoryBitMask = paddleCat
             
-            ball.physicsBody?.contactTestBitMask = bottomCat
+            ball.physicsBody?.contactTestBitMask = bottomCat | blockCat
             
-            let numberOfRows = 4
-            let numbersOfBricks = 8
+            let numberOfRows = 3
+            let numbersOfBricks = 10
+            let brickWidth = SKSpriteNode(imageNamed: "paddle").size.width
+            let padding:Float = 20
+            
+            let offSet = (Float(self.frame.size.width) - (Float(brickWidth) * Float(numbersOfBricks) + padding * (Float(numbersOfBricks) - 1 ) ) ) / 2
+            
+            for index in 1 ... numberOfRows {
+                
+                var yOffset:CGFloat {
+                    switch index {
+                    case 1:
+                        return self.frame.size.height * 0.8
+                    case 2:
+                        return self.frame.size.height * 0.6
+                    case 3:
+                        return self.frame.size.height * 0.4
+                    default:
+                        return 0
+                    }
+                }
+                
+                for index in 1 ... numbersOfBricks {
+                    let brick = SKSpriteNode(imageNamed: "blocks")
+                    
+                    let calc1:Float = Float(index) - -5
+                    let calc2:Float = Float(index) - 1
+                    
+                    brick.position = CGPoint(x:CGFloat(calc1 * Float(brick.frame.size.width) + calc2 * padding + offSet),y: yOffset)
+                    
+                    brick.physicsBody = SKPhysicsBody(rectangleOf: brick.frame.size)
+                    brick.physicsBody?.allowsRotation = false
+                    brick.name = BlockCatName
+                    brick.physicsBody?.categoryBitMask = blockCat
+                    brick.physicsBody?.isDynamic = false
+                    self.addChild(brick)
+                    
+                }
+                
+            }
+            
+            
             
         } catch{
             print(error)
@@ -169,9 +210,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if firstBody.categoryBitMask == ballCat && secondBody.categoryBitMask == bottomCat {
             print("you Lost!")
+            let gameOverScene = GameOverScene(size:self.frame.size, playerWon: false)
+            self.view?.presentScene(gameOverScene)
+        }
+
+        if firstBody.categoryBitMask == ballCat && secondBody.categoryBitMask == blockCat {
+            secondBody.node?.removeFromParent()
+            
+            if isGameWon(){
+                print("You Won!")
+                let youWinScene = GameOverScene(size: self.frame.size, playerWon: true)
+                self.view?.presentScene(youWinScene)
+            }
+            
         }
         
         
+    }
+    
+    
+    func isGameWon() -> Bool {
+        var numberOfBricks = 0
+        
+        for nodeObject in self.children{
+            let node = nodeObject as SKNode
+            if node.name == BlockCatName {
+                numberOfBricks += 1
+            }
+        }
+        return numberOfBricks <= 0
     }
     
     
