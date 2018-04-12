@@ -2,7 +2,7 @@
 //  GameOverScene.swift
 //  BlockFrenzy
 //
-//  Created by McLoughlin David J. on 4/5/18.
+//  Created by Arsin Youkhana. on 4/5/18.
 //  Copyright © 2018 McLoughlin David J. All rights reserved.
 //
 

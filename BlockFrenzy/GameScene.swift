@@ -2,7 +2,7 @@
 //  GameScene.swift
 //  BlockFrenzy
 //
-//  Created by McLoughlin David J. on 3/8/18.
+//  Created by Arsin Youkhana. on 3/8/18.
 //  Copyright © 2018 McLoughlin David J. All rights reserved.
 //
 
@@ -16,6 +16,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let paddleCatName = "paddle"
     let BlockCatName = "block"
     
+    //particlesystem
+    //let gameOverFire = SKEmitterNode(fileNamed: "GameOverFire")
+    
+    var textureAtlas = SKTextureAtlas()
+    var textureArray = [SKTexture]()
+    
+    var Ball = SKSpriteNode()
     
     var BackgroundMusic = AVAudioPlayer()
     var fingerIsOnpaddle = false
@@ -35,6 +42,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         do {
             
             
+            textureAtlas = SKTextureAtlas(named: "images")
+            for i in 1...textureAtlas.textureNames.count{
+                
+                var name = "ball_\(i).png"
+                textureArray.append(SKTexture(imageNamed: name))
+                
+            }
+            
+            Ball = SKSpriteNode(imageNamed: textureAtlas.textureNames[0])
+            
+            
             self.physicsWorld.contactDelegate = self
             
             
@@ -49,15 +67,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
             
+            let gameOverFire = SKEmitterNode(fileNamed: "GameOverFire")
+            gameOverFire?.position = CGPoint(x:275, y: 0)
+            gameOverFire?.isHidden = false
+            addChild(gameOverFire!)
+            
+            
             let border = SKPhysicsBody(edgeLoopFrom: self.frame)
             self.physicsBody = border
             self.physicsBody?.friction = 0
             
-            let ball = SKSpriteNode(imageNamed: "Ball")
+            let ball = Ball //SKSpriteNode(imageNamed: "Ball")
             ball.name = BallCatName
             ball.position = CGPoint(x: self.frame.size.width/4, y: self.frame.size.width/4)
             self.addChild(ball)
             ball.setScale(2)
+            ball.run(SKAction.repeatForever(SKAction.animate(with: textureArray, timePerFrame:0.1)))
             
             
             ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.frame.size.width/2)
@@ -199,6 +224,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var firstBody = SKPhysicsBody()
         var secondBody = SKPhysicsBody()
         
+        //let brickBreakEffect = SKEmitterNode(fileNamed: "breakBrick")
+        
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
@@ -216,6 +243,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         if firstBody.categoryBitMask == ballCat && secondBody.categoryBitMask == blockCat {
             secondBody.node?.removeFromParent()
+            //brickBreakEffect?.position = CGPoint(x:, y:)
+            //brickBreakEffect?.isHidden = false
+            //addChild(brickBreakEffect!)
             
             if isGameWon(){
                 print("You Won!")

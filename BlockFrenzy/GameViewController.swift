@@ -2,7 +2,7 @@
 //  GameViewController.swift
 //  BlockFrenzy
 //
-//  Created by McLoughlin David J. on 3/8/18.
+//  Created by Arsin Youkhana. on 3/8/18.
 //  Copyright © 2018 McLoughlin David J. All rights reserved.
 //
 
@@ -12,26 +12,59 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    override func loadView() {
+        
+        
+        let view = UIView()
+        view.backgroundColor = .white
+        view.sizeToFit()
+        
+        
+        
+        let play = UIButton(type: .roundedRect) as UIButton
+        play.setTitle("PLAY GAME!", for: .normal)
+        play.setTitleColor(UIColor.white, for: .normal)
+        play.frame = CGRect(x: 290, y: 250, width: 150, height: 45)
+        play.backgroundColor = UIColor.black
+        play.addTarget(self, action: #selector(PlayGame), for: .touchUpInside)
+        
+        view.addSubview(play)
+        self.view = view
+
+    }
+    
+        
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
+    
+    
+    
+    
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        let skView = self.view as! SKView
-        if skView.scene == nil {
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            
-            let gameScene = GameScene(size: skView.bounds.size)
-            gameScene.scaleMode = .aspectFit
-            
-            skView.presentScene(gameScene)
-        }
     }
     
+    
+    
+    @IBAction func PlayGame() {
+        
+        
+        let scene = GameScene(size: CGSize(width: self.view.frame.width, height: self.view.frame.height))
+        let skView = SKView()
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        skView.ignoresSiblingOrder = true
+        scene.scaleMode = .aspectFill
+        skView.presentScene(scene)
+        self.view = skView
+        
+        
+    }
     
     override var shouldAutorotate: Bool {
         return true

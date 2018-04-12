@@ -14,11 +14,15 @@
 		7BD1380F2051DB0C0055F982 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD1380E2051DB0C0055F982 /* GameScene.swift */; };
 		7BD138112051DB0C0055F982 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD138102051DB0C0055F982 /* GameViewController.swift */; };
 		7BD138142051DB0C0055F982 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BD138122051DB0C0055F982 /* Main.storyboard */; };
-		7BD138162051DB0C0055F982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BD138152051DB0C0055F982 /* Assets.xcassets */; };
 		7BD138192051DB0C0055F982 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BD138172051DB0C0055F982 /* LaunchScreen.storyboard */; };
 		7BD138242051DB0C0055F982 /* BlockFrenzyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD138232051DB0C0055F982 /* BlockFrenzyTests.swift */; };
 		7BD1382F2051DB0C0055F982 /* BlockFrenzyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD1382E2051DB0C0055F982 /* BlockFrenzyUITests.swift */; };
 		7BD1383D2051E4400055F982 /* Dark_Knight_Dummo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7BD1383C2051E4400055F982 /* Dark_Knight_Dummo.mp3 */; };
+		91120E43207FEED8005BF1F8 /* breakBrick.sks in Resources */ = {isa = PBXBuildFile; fileRef = 91120E42207FEED8005BF1F8 /* breakBrick.sks */; };
+		91120E47207FF741005BF1F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91120E45207FF741005BF1F8 /* Assets.xcassets */; };
+		91120E4A207FF86B005BF1F8 /* GameOverFire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 91120E48207FF86B005BF1F8 /* GameOverFire.sks */; };
+		91120E4B207FF86B005BF1F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91120E49207FF86B005BF1F8 /* Assets.xcassets */; };
+		91120E4F20801783005BF1F8 /* images.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 91120E4E20801783005BF1F8 /* images.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +51,6 @@
 		7BD1380E2051DB0C0055F982 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		7BD138102051DB0C0055F982 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7BD138132051DB0C0055F982 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7BD138152051DB0C0055F982 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BD138182051DB0C0055F982 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7BD1381A2051DB0C0055F982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BD1381F2051DB0C0055F982 /* BlockFrenzyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlockFrenzyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +60,11 @@
 		7BD1382E2051DB0C0055F982 /* BlockFrenzyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockFrenzyUITests.swift; sourceTree = "<group>"; };
 		7BD138302051DB0C0055F982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BD1383C2051E4400055F982 /* Dark_Knight_Dummo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Dark_Knight_Dummo.mp3; sourceTree = "<group>"; };
+		91120E42207FEED8005BF1F8 /* breakBrick.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = breakBrick.sks; sourceTree = "<group>"; };
+		91120E45207FF741005BF1F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		91120E48207FF86B005BF1F8 /* GameOverFire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverFire.sks; sourceTree = "<group>"; };
+		91120E49207FF86B005BF1F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		91120E4E20801783005BF1F8 /* images.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = images.atlas; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,7 @@
 		7BD137FC2051DB0C0055F982 = {
 			isa = PBXGroup;
 			children = (
+				91120E45207FF741005BF1F8 /* Assets.xcassets */,
 				7BD138072051DB0C0055F982 /* BlockFrenzy */,
 				7BD138222051DB0C0055F982 /* BlockFrenzyTests */,
 				7BD1382D2051DB0C0055F982 /* BlockFrenzyUITests */,
@@ -107,6 +116,7 @@
 		7BD138072051DB0C0055F982 /* BlockFrenzy */ = {
 			isa = PBXGroup;
 			children = (
+				91120E4E20801783005BF1F8 /* images.atlas */,
 				7BD1383C2051E4400055F982 /* Dark_Knight_Dummo.mp3 */,
 				7BD138082051DB0C0055F982 /* AppDelegate.swift */,
 				7BD1380A2051DB0C0055F982 /* GameScene.sks */,
@@ -115,9 +125,11 @@
 				7B8565EA2076D40E00AD49DE /* GameOverScene.swift */,
 				7BD138102051DB0C0055F982 /* GameViewController.swift */,
 				7BD138122051DB0C0055F982 /* Main.storyboard */,
-				7BD138152051DB0C0055F982 /* Assets.xcassets */,
 				7BD138172051DB0C0055F982 /* LaunchScreen.storyboard */,
 				7BD1381A2051DB0C0055F982 /* Info.plist */,
+				91120E42207FEED8005BF1F8 /* breakBrick.sks */,
+				91120E48207FF86B005BF1F8 /* GameOverFire.sks */,
+				91120E49207FF86B005BF1F8 /* Assets.xcassets */,
 			);
 			path = BlockFrenzy;
 			sourceTree = "<group>";
@@ -247,11 +259,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91120E43207FEED8005BF1F8 /* breakBrick.sks in Resources */,
 				7BD138142051DB0C0055F982 /* Main.storyboard in Resources */,
 				7BD1380B2051DB0C0055F982 /* GameScene.sks in Resources */,
+				91120E4A207FF86B005BF1F8 /* GameOverFire.sks in Resources */,
 				7BD1383D2051E4400055F982 /* Dark_Knight_Dummo.mp3 in Resources */,
-				7BD138162051DB0C0055F982 /* Assets.xcassets in Resources */,
 				7BD138192051DB0C0055F982 /* LaunchScreen.storyboard in Resources */,
+				91120E47207FF741005BF1F8 /* Assets.xcassets in Resources */,
+				91120E4F20801783005BF1F8 /* images.atlas in Resources */,
+				91120E4B207FF86B005BF1F8 /* Assets.xcassets in Resources */,
 				7BD1380D2051DB0C0055F982 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
